@@ -4,6 +4,7 @@
 
   // nativeSelect.style.display = "none";
 
+  nativeSelect.addEventListener("change", updateCustomSelect);
   const select = document.querySelector(".custom-select");
   const trigger = select.querySelector(".custom-select__trigger");
   const triggerText = trigger.querySelector(".custom-select__trigger-text");
@@ -20,8 +21,20 @@
     if (event.target.classList.contains("custom-select__option_disabled"))
       return;
 
-    const value = event.target.dataset.value;
-    const text = event.target.textContent.trim();
+    setActiveOption(event.target);
+
+    if ("createEvent" in document) {
+      var e = document.createEvent("HTMLEvents");
+      e.initEvent("change", false, true);
+      nativeSelect.dispatchEvent(e);
+    } else {
+      nativeSelect.fireEvent("onchange");
+    }
+  }
+
+  function setActiveOption(option) {
+    const value = option.dataset.value;
+    const text = option.textContent.trim();
 
     select.classList.remove("custom-select_expanded");
     triggerText.textContent = text;
@@ -33,15 +46,15 @@
         nativeSelect.options[index].selected = true;
       }
     });
-    event.target.classList.add("custom-select__option_selected");
+    option.classList.add("custom-select__option_selected");
+  }
 
-    if ("createEvent" in document) {
-      var e = document.createEvent("HTMLEvents");
-      e.initEvent("change", false, true);
-      nativeSelect.dispatchEvent(e);
-    } else {
-      nativeSelect.fireEvent("onchange");
-    }
+  function updateCustomSelect(event) {
+    const value = event.target.value;
+    const option = Array.from(options).find((option) => {
+      return option.dataset.value === value;
+    });
+    setActiveOption(option);
   }
 
   function handleChangeLanguage(event) {
