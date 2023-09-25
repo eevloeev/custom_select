@@ -1,0 +1,94 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+@import "reset";
+@import "variables";
+@import "common";
+
+.custom-select {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  font-size: 12px;
+  user-select: none;
+
+  &-wrapper {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &__trigger {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    cursor: default;
+
+    @media (max-width: 767px) {
+      cursor: pointer;
+    }
+
+    &-icon {
+      fill: $primary-color;
+      width: 1em;
+      height: 1em;
+    }
+
+    &-text {
+      color: $primary-color;
+    }
+
+    &-arrow {
+      fill: $primary-color;
+      width: 1.3em;
+      height: 1.3em;
+
+      .custom-select_expanded & {
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  &__options {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    margin-top: 0.5em;
+    flex-direction: column;
+    background-color: $background-color;
+    border: 1px solid $border-color;
+    border-radius: 6px;
+    font-size: 1em;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+
+    @media (max-width: 767px) {
+      font-size: 14px;
+    }
+
+    .custom-select_expanded & {
+      display: flex;
+    }
+  }
+
+  &__option {
+    padding: 0.25em 0.5em;
+
+    &:not(&_disabled):not(&_selected) {
+      cursor: pointer;
+
+      &:hover {
+        background-color: $background-hover-color;
+      }
+    }
+
+    &_selected {
+      background-color: $background-selected-color;
+    }
+
+    &_disabled {
+      color: $disabled-color;
+      cursor: not-allowed;
+    }
+  }
+}

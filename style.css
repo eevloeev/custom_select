@@ -1,0 +1,248 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+}
+
+h1 {
+  display: block;
+  width: 100%;
+  font-size: 1.75rem;
+  font-weight: 700;
+}
+
+.demo {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 3rem;
+  padding-top: 20vh;
+}
+.demo > .native,
+.demo > .custom {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  gap: 1rem;
+}
+
+.native {
+  align-items: end;
+}
+
+.custom-select {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  font-size: 12px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+.custom-select-wrapper {
+  display: flex;
+  justify-content: flex-end;
+}
+.custom-select__trigger {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  cursor: default;
+}
+@media (max-width: 767px) {
+  .custom-select__trigger {
+    cursor: pointer;
+  }
+}
+.custom-select__trigger-icon {
+  fill: #00579e;
+  width: 1em;
+  height: 1em;
+}
+.custom-select__trigger-text {
+  color: #00579e;
+}
+.custom-select__trigger-arrow {
+  fill: #00579e;
+  width: 1.3em;
+  height: 1.3em;
+}
+.custom-select_expanded .custom-select__trigger-arrow {
+  transform: rotate(180deg);
+}
+.custom-select__options {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 0.5em;
+  flex-direction: column;
+  background-color: #f6f7f9;
+  border: 1px solid #d8dee8;
+  border-radius: 6px;
+  font-size: 1em;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+@media (max-width: 767px) {
+  .custom-select__options {
+    font-size: 14px;
+  }
+}
+.custom-select_expanded .custom-select__options {
+  display: flex;
+}
+.custom-select__option {
+  padding: 0.25em 0.5em;
+}
+.custom-select__option:not(.custom-select__option_disabled):not(.custom-select__option_selected) {
+  cursor: pointer;
+}
+.custom-select__option:not(.custom-select__option_disabled):not(.custom-select__option_selected):hover {
+  background-color: #f0f2f5;
+}
+.custom-select__option_selected {
+  background-color: #eaecf1;
+}
+.custom-select__option_disabled {
+  color: #b9c1d0;
+  cursor: not-allowed;
+}/*# sourceMappingURL=style.css.map */
