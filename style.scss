@@ -66,6 +66,13 @@
       font-size: 14px;
     }
 
+    &_top {
+      top: auto;
+      bottom: 100%;
+      margin-top: 0;
+      margin-bottom: 0.5em;
+    }
+
     .custom-select_expanded & {
       display: flex;
     }

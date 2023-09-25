@@ -227,6 +227,12 @@ h1 {
     font-size: 14px;
   }
 }
+.custom-select__options_top {
+  top: auto;
+  bottom: 100%;
+  margin-top: 0;
+  margin-bottom: 0.5em;
+}
 .custom-select_expanded .custom-select__options {
   display: flex;
 }

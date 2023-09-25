@@ -8,6 +8,7 @@
   const select = document.querySelector(".custom-select");
   const trigger = select.querySelector(".custom-select__trigger");
   const triggerText = trigger.querySelector(".custom-select__trigger-text");
+  const dropdown = select.querySelector(".custom-select__options");
   const options = select.querySelectorAll(".custom-select__option");
   trigger.addEventListener("click", toggleDropdown);
   document.addEventListener("click", handleOutsideClick);
@@ -65,11 +66,26 @@
   function toggleDropdown(event) {
     event.stopPropagation();
     select.classList.toggle("custom-select_expanded");
+
+    checkAndFixDropdownPosition();
   }
 
   function handleOutsideClick(event) {
     if (event.target.closest(".custom-select")) return;
 
     select.classList.remove("custom-select_expanded");
+  }
+
+  function checkAndFixDropdownPosition() {
+    const dropdownRect = dropdown.getBoundingClientRect();
+
+    const isBottomComesOut =
+      dropdownRect.y + dropdownRect.height > window.innerHeight;
+
+    if (isBottomComesOut) {
+      dropdown.classList.add("custom-select__options_top");
+    } else {
+      dropdown.classList.remove("custom-select__options_top");
+    }
   }
 })();
