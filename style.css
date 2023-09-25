@@ -139,31 +139,18 @@ body {
 }
 
 h1 {
-  display: block;
-  width: 100%;
   font-size: 1.75rem;
   font-weight: 700;
 }
 
 .demo {
   display: flex;
+  flex-direction: column;
   width: 100%;
   height: 100vh;
-  justify-content: center;
-  align-items: flex-start;
+  align-items: center;
+  padding-top: 10vh;
   gap: 3rem;
-  padding-top: 20vh;
-}
-.demo > .native,
-.demo > .custom {
-  display: flex;
-  flex-direction: column;
-  width: 200px;
-  gap: 1rem;
-}
-
-.native {
-  align-items: end;
 }
 
 .custom-select {
@@ -221,6 +208,7 @@ h1 {
   font-size: 1em;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
   overflow: hidden;
+  z-index: 1;
 }
 @media (max-width: 767px) {
   .custom-select__options {
